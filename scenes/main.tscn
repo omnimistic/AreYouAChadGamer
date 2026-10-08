@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bavtr6ug57tqw"]
+
+[ext_resource type="Script" uid="uid://dus1vmvw4tqry" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="Shader" uid="uid://bi6yhv4nal5a1" path="res://shaders/bg.gdshader" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://3c55yej3upqd" path="res://assets/kenney-pattern-pack/pattern_000.svg" id="2_0wfyh"]
+[ext_resource type="Shader" uid="uid://dr830slnj5dpj" path="res://shaders/transition.gdshader" id="3_sugp2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vw3mj"]
+shader = ExtResource("1_sugp2")
+shader_parameter/pattern = ExtResource("2_0wfyh")
+shader_parameter/pattern_color = Color(0.60682964, 0, 0.20882472, 1)
+shader_parameter/background_color = Color(1, 0.82552576, 0, 1)
+shader_parameter/tiling = 100.0
+shader_parameter/speed = Vector2(0.1, 0.5)
+shader_parameter/rotation = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wfyh"]
+shader = ExtResource("3_sugp2")
+shader_parameter/circle_size = 0.0
+shader_parameter/circle_color = Color(1, 1, 1, 1)
+
+[node name="main" type="Control" unique_id=1759235328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jyhfs")
+
+[node name="bg" type="ColorRect" parent="." unique_id=413307551]
+material = SubResource("ShaderMaterial_vw3mj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=6730404]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1215281925]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1615353350]
+layout_mode = 2
+text = "\"WHAT KINDA GAMER ARE YOU?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1231879554]
+layout_mode = 2
+text = "A completely unscientific diagnostic test to determine if you are an esports prodigy, a spreadsheet goblin, or a casual button-masher."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2130985098]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer" unique_id=1448773714]
+layout_mode = 2
+text = "begin"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer" unique_id=1117471671]
+layout_mode = 2
+text = "follow us for more cool stuff :)"
+
+[node name="game_container" type="Control" parent="." unique_id=1021951843]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2008731331]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1807474375]
+material = SubResource("ShaderMaterial_0wfyh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cdyfwk68wexdv"]
+
+[ext_resource type="Script" uid="uid://da60sw5fpfuvv" path="res://scripts/snake.gd" id="1_k3xhy"]
+
+[node name="snake_game" type="Control" unique_id=695080702]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k3xhy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1036565344]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14194101, 0.15551782, 0.07285694, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=362556723]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="status_label" type="Label" parent="VBoxContainer" unique_id=271976168]
+layout_mode = 2
+text = "status"
+
+[node name="message_label" type="Label" parent="VBoxContainer" unique_id=1031427093]
+layout_mode = 2
+text = "message"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=478230529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="board" type="Control" parent="CenterContainer" unique_id=437227140]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="move_timer" type="Timer" parent="." unique_id=1419902768]
+wait_time = 0.22

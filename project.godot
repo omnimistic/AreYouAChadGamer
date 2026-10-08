@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="are you a chad gamer?"
+run/main_scene="uid://bavtr6ug57tqw"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GLOBAL="*uid://da8bj5jgjkukt"
 
 [display]
 
