@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1emt66mqaxxy" path="res://assets/snake-game/body.png" id="3_bht7t"]
 [ext_resource type="Texture2D" uid="uid://dt37jih2yrenc" path="res://assets/snake-game/tail.png" id="4_ftrf5"]
 [ext_resource type="Texture2D" uid="uid://bw2ng4apuncdg" path="res://assets/snake-game/fruit.png" id="4_iehi5"]
+[ext_resource type="FontFile" uid="uid://4a4l6xxos5f7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_bht7t"]
 
 [node name="snake_game" type="Control" unique_id=695080702]
 texture_filter = 1
@@ -36,10 +37,12 @@ offset_bottom = 40.0
 
 [node name="status_label" type="Label" parent="VBoxContainer" unique_id=271976168]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bht7t")
 text = "status"
 
 [node name="message_label" type="Label" parent="VBoxContainer" unique_id=1031427093]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bht7t")
 text = "message"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=478230529]

@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://3dp4tcbds3fv"]
+
+[ext_resource type="Texture2D" uid="uid://dq6g46f821msi" path="res://assets/fps/gun.png" id="1_fy85f"]
+[ext_resource type="Script" uid="uid://c28w5xierybwv" path="res://scripts/psuedo_fps.gd" id="1_pgtdj"]
+[ext_resource type="Texture2D" uid="uid://dhnpyhd61enrl" path="res://assets/fps/crosshair.png" id="2_xmfps"]
+[ext_resource type="FontFile" uid="uid://4a4l6xxos5f7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dydg0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy85f"]
+atlas = ExtResource("1_fy85f")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmfps"]
+atlas = ExtResource("1_fy85f")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgtdj"]
+atlas = ExtResource("1_fy85f")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dydg0"]
+atlas = ExtResource("1_fy85f")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33xk1"]
+atlas = ExtResource("1_fy85f")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1i1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy85f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmfps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgtdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dydg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33xk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmfps")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 8.0
+}]
+
+[node name="psuedo_fps" type="Control" unique_id=455634377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pgtdj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1814550797]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 297.0
+grow_horizontal = 2
+color = Color(0.73000085, 0.32281345, 0.3667826, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=60397434]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -352.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.6125778, 0.61257786, 0.6125778, 1)
+
+[node name="enemies" type="Node2D" parent="." unique_id=1664121487]
+
+[node name="gun_pivot" type="Node2D" parent="." unique_id=900563163]
+
+[node name="gun" type="AnimatedSprite2D" parent="gun_pivot" unique_id=1178118225]
+position = Vector2(-251, -258)
+sprite_frames = SubResource("SpriteFrames_k1i1c")
+animation = &"shoot"
+frame = 4
+frame_progress = 1.0
+
+[node name="crosshair" type="TextureRect" parent="." unique_id=1002368047]
+modulate = Color(0, 0.116528906, 0.99999934, 1)
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_xmfps")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=356844313]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="timer_label" type="Label" parent="VBoxContainer" unique_id=1006329303]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_dydg0")
+
+[node name="score_label" type="Label" parent="VBoxContainer" unique_id=354576446]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_dydg0")
+
+[node name="game_timer" type="Timer" parent="." unique_id=1249530508]
+wait_time = 20.0
+one_shot = true
+
+[node name="enemy_spawn_timer" type="Timer" parent="." unique_id=792032475]
+wait_time = 1.6
