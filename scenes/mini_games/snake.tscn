@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://cdyfwk68wexdv"]
 
 [ext_resource type="Script" uid="uid://da60sw5fpfuvv" path="res://scripts/snake.gd" id="1_k3xhy"]
+[ext_resource type="Texture2D" uid="uid://d2cojw3a5hmoc" path="res://assets/snake-game/head.png" id="2_fp2rv"]
+[ext_resource type="Texture2D" uid="uid://d2dnj08amntam" path="res://assets/snake-game/tile.png" id="2_uqh3o"]
+[ext_resource type="Texture2D" uid="uid://c1emt66mqaxxy" path="res://assets/snake-game/body.png" id="3_bht7t"]
+[ext_resource type="Texture2D" uid="uid://dt37jih2yrenc" path="res://assets/snake-game/tail.png" id="4_ftrf5"]
+[ext_resource type="Texture2D" uid="uid://bw2ng4apuncdg" path="res://assets/snake-game/fruit.png" id="4_iehi5"]
 
 [node name="snake_game" type="Control" unique_id=695080702]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +16,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k3xhy")
+head_texture = ExtResource("2_fp2rv")
+body_texture = ExtResource("3_bht7t")
+tail_texture = ExtResource("4_ftrf5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1036565344]
 layout_mode = 1
@@ -45,5 +54,238 @@ grow_vertical = 2
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/board" unique_id=678251845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1713804811]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=265481151]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=773975291]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1196347147]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=532032867]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=2144909918]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1490893889]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=709434050]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1613418217]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=316916640]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=897869057]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1749253516]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=886816337]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1596840963]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=545782315]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect16" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1478642960]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect17" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=276952689]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect18" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=2046208337]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect19" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=218408064]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect20" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1851963795]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect21" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1891993525]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect22" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1474350738]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect23" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=1196867233]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect24" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=382714132]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="TextureRect25" type="TextureRect" parent="CenterContainer/board/GridContainer" unique_id=301613534]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uqh3o")
+expand_mode = 1
+
+[node name="entity_container" type="Control" parent="CenterContainer/board" unique_id=762935249]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="food_sprite" type="TextureRect" parent="CenterContainer/board/entity_container" unique_id=64756804]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_iehi5")
+expand_mode = 1
+
+[node name="snake" type="Control" parent="CenterContainer/board/entity_container" unique_id=1552287144]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="move_timer" type="Timer" parent="." unique_id=1419902768]
-wait_time = 0.22
+wait_time = 0.4
