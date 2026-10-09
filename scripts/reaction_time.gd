@@ -14,7 +14,6 @@ var time_turned_green: int = 0
 
 func _ready() -> void:
 	wait_timer.one_shot = true
-	wait_timer.timeout.connect(_on_timer_timeout)
 	start_attempt()
 
 func start_attempt() -> void:

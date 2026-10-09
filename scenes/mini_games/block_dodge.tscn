@@ -1,0 +1,220 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/block_dodge.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/block_dodge/background.png" id="2_bg"]
+[ext_resource type="SpriteFrames" path="res://assets/block_dodge/character_frames.tres" id="3_frames"]
+[ext_resource type="FontFile" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+content_margin_left = 20.0
+content_margin_top = 9.0
+content_margin_right = 20.0
+content_margin_bottom = 9.0
+bg_color = Color(0.07058824, 0.14509805, 0.24313726, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31764707, 0.5058824, 0.7607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 20.0
+content_margin_top = 9.0
+content_margin_right = 20.0
+content_margin_bottom = 9.0
+bg_color = Color(0.12941177, 0.24313726, 0.3764706, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.52156866, 0.69411767, 0.9411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 20.0
+content_margin_top = 9.0
+content_margin_right = 20.0
+content_margin_bottom = 9.0
+bg_color = Color(0.043137256, 0.09019608, 0.15686275, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85882354, 0.5294118, 1)
+
+[node name="block_dodge" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.078431375, 0.11764706, 0.15686275, 1)
+
+[node name="stage" type="Control" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 680.0
+offset_bottom = 340.0
+mouse_filter = 2
+
+[node name="bg" type="TextureRect" parent="stage"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 680.0
+offset_bottom = 340.0
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="entities" type="Node2D" parent="stage"]
+
+[node name="player" type="AnimatedSprite2D" parent="stage/entities"]
+texture_filter = 1
+sprite_frames = ExtResource("3_frames")
+animation = &"idle"
+frame_progress = 0.0
+
+[node name="hud" type="Control" parent="stage"]
+layout_mode = 0
+offset_right = 680.0
+offset_bottom = 340.0
+mouse_filter = 2
+
+[node name="score_label" type="Label" parent="stage/hud"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 330.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.8509804, 0.92156863, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 15
+text = "SCORE 0      TIME 0.0s"
+vertical_alignment = 1
+
+[node name="best_label" type="Label" parent="stage/hud"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 8.0
+offset_right = 668.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.8509804, 0.92156863, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 15
+text = "BEST 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="hint_label" type="Label" parent="stage/hud"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 31.0
+offset_right = 400.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.47843137, 0.6431373, 0.8509804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 12
+text = "A / D  or  ARROW KEYS  to dodge"
+vertical_alignment = 1
+
+[node name="game_over" type="Control" parent="stage"]
+visible = false
+layout_mode = 0
+offset_right = 680.0
+offset_bottom = 340.0
+mouse_filter = 2
+
+[node name="dim" type="ColorRect" parent="stage/game_over"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015686275, 0.043137256, 0.08627451, 0.76)
+
+[node name="panel" type="VBoxContainer" parent="stage/game_over"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="title_label" type="Label" parent="stage/game_over/panel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85882354, 0.5294118, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="result_label" type="Label" parent="stage/game_over/panel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.92156863, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 17
+text = "SCORE 0      BEST 0"
+horizontal_alignment = 1
+
+[node name="buttons" type="HBoxContainer" parent="stage/game_over/panel"]
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="retry_btn" type="Button" parent="stage/game_over/panel/buttons"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.8509804, 0.92156863, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85882354, 0.5294118, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "RETRY   (SPACE)"
+
+[node name="next_btn" type="Button" parent="stage/game_over/panel/buttons"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.8509804, 0.92156863, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85882354, 0.5294118, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "NEXT   (ENTER)"
