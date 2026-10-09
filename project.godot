@@ -67,3 +67,5 @@ ui_down={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.047058824, 0.09411765, 0.14901961, 1)
+rendering/textures/canvas_textures/default_texture_filter=0

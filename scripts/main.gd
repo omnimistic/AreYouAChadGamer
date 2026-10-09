@@ -22,6 +22,24 @@ func _on_begin_pressed() -> void:
 	begin_btn.disabled = true
 	transition_to_scene("res://scenes/mini_games/reaction_time.tscn")
 
+func back_to_menu() -> void:
+	var tween_in = create_tween()
+	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45)\
+		.set_trans(Tween.TRANS_QUAD)\
+		.set_ease(Tween.EASE_IN)
+	await tween_in.finished
+
+	for child in game_container.get_children():
+		child.queue_free()
+
+	landing_page.show()
+	begin_btn.disabled = false
+
+	var tween_out = create_tween()
+	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\
+		.set_trans(Tween.TRANS_QUAD)\
+		.set_ease(Tween.EASE_OUT)
+
 func transition_to_scene(scene_path: String) -> void:
 	
 	var tween_in = create_tween()
@@ -43,8 +61,9 @@ func transition_to_scene(scene_path: String) -> void:
 		elif scene_path.ends_with("snake.tscn"):
 			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/psuedo_fps.tscn"))
 		elif scene_path.ends_with("psuedo_fps.tscn"):
-			pass
-			#new_scene.game_finished.connect(func(): transition_to_scene())
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/block_dodge.tscn"))
+		elif scene_path.ends_with("block_dodge.tscn"):
+			new_scene.game_finished.connect(back_to_menu)
 
 	var tween_out = create_tween()
 	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\
