@@ -43,8 +43,10 @@ func transition_to_scene(scene_path: String) -> void:
 		elif scene_path.ends_with("snake.tscn"):
 			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/psuedo_fps.tscn"))
 		elif scene_path.ends_with("psuedo_fps.tscn"):
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/pat_manware.tscn"))
+		elif scene_path.ends_with("pat_manware.tscn"):
 			pass
-			#new_scene.game_finished.connect(func(): transition_to_scene())
+			#get_tree().quit()
 
 	var tween_out = create_tween()
 	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\

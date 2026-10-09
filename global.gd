@@ -8,5 +8,8 @@ var minigame_scores = {
 	"snake_win_attempt": 0, # 1, 2, 3, or 0 if failed all attempts
 	"shooter_hits": 0,
 	"shooter_shots": 0,
-	"shooter_accuracy": 0.0
+	"shooter_accuracy": 0.0,
+	"rhythm_passed": false,
+	"rhythm_win_attempt": 0,
+	"rhythm_final_mood": 0
 }
