@@ -12,5 +12,8 @@ var minigame_scores = {
 	"dodge_blocks_dodged": 0,
 	"shooter_hits": 0,
 	"shooter_shots": 0,
-	"shooter_accuracy": 0.0
+	"shooter_accuracy": 0.0,
+	"rhythm_passed": false,
+	"rhythm_win_attempt": 0,
+	"rhythm_final_mood": 0
 }

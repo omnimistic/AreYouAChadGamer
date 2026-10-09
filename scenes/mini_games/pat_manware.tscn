@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://6qa7ajti4i08"]
+
+[ext_resource type="Texture2D" uid="uid://cqxvk3rmqerce" path="res://assets/pat-manware/1.webp" id="1_dn82a"]
+[ext_resource type="Script" uid="uid://ctxfkeyhr7lo0" path="res://scripts/pat_manware.gd" id="1_qyoje"]
+
+[node name="pat_manware" type="Control" unique_id=1020182240]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qyoje")
+
+[node name="bg" type="ColorRect" parent="." unique_id=1938032761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19601893, 0.30712366, 0.4157571, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1400306590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=2017023656]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=95156245]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("1_dn82a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer" unique_id=1938856631]
+custom_minimum_size = Vector2(220, 16)
+layout_mode = 2
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=965809599]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="status_label" type="Label" parent="VBoxContainer" unique_id=371541816]
+layout_mode = 2
+
+[node name="attempt_label" type="Label" parent="VBoxContainer" unique_id=1165149904]
+layout_mode = 2
+
+[node name="mood_label" type="Label" parent="VBoxContainer" unique_id=1179296868]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=979280180]
