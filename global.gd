@@ -15,5 +15,15 @@ var minigame_scores = {
 	"shooter_accuracy": 0.0,
 	"rhythm_passed": false,
 	"rhythm_win_attempt": 0,
-	"rhythm_final_mood": 0
+	"rhythm_final_mood": 0,
+	"jee_correct": 0,
+	"jee_incorrect": 0,
+	"jee_unanswered": 0,
+	"jee_accuracy": 0.0,
+	"jee_completion_time": 0.0,
+	"jee_score": 0.0,
+	"predict_correct": 0,
+	"predict_incorrect": 0,
+	"predict_avg_time": 0.0,
+	"predict_score": 0.0
 }

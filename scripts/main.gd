@@ -65,6 +65,10 @@ func transition_to_scene(scene_path: String) -> void:
 		elif scene_path.ends_with("block_dodge.tscn"):
 			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/pat_manware.tscn"))
 		elif scene_path.ends_with("pat_manware.tscn"):
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/jee_advanced.tscn"))
+		elif scene_path.ends_with("jee_advanced.tscn"):
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/predict.tscn"))
+		elif scene_path.ends_with("predict.tscn"):
 			new_scene.game_finished.connect(back_to_menu)
 
 	var tween_out = create_tween()
