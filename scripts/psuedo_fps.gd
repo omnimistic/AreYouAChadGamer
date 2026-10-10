@@ -83,8 +83,8 @@ func shoot(click_pos: Vector2) -> void:
 
 	recoil_offset_y = 20.0
 	var recoil_tween = create_tween()
-	recoil_tween.tween_property(self, "recoil_offset_y", 0.0, 0.16)\
-		.set_trans(Tween.TRANS_QUAD)\
+	recoil_tween.tween_property(self, "recoil_offset_y", 0.0, 0.16) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_OUT)
 
 	var space_state = get_world_2d().direct_space_state
@@ -123,8 +123,8 @@ func spawn_enemy() -> void:
 	var spawn_x = randf_range(MIN_SPAWN_X, MAX_SPAWN_X)
 	enemy.position = Vector2(spawn_x, HORIZON_Y)
 
-	enemy.enemy_defeated.connect(func(): pass)
-	enemy.enemy_escaped.connect(func(): pass)
+	enemy.enemy_defeated.connect(func(): pass )
+	enemy.enemy_escaped.connect(func(): pass )
 	enemies_container.add_child(enemy)
 
 func _on_game_timer_timeout() -> void:

@@ -1,0 +1,270 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/predict.gd" id="s1"]
+[ext_resource type="FontFile" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="f1"]
+[ext_resource type="FontFile" path="res://assets/fonts/PixelOperator8.ttf" id="f2"]
+
+[sub_resource type="StyleBoxFlat" id="btn_normal"]
+bg_color = Color(0.12941177, 0.14901961, 0.24313726, 1.0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3137255, 0.4745098, 0.7529412, 1.0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="btn_hover"]
+bg_color = Color(0.21568628, 0.2509804, 0.4, 1.0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.47843137, 0.64705884, 0.9137255, 1.0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="panel_style"]
+bg_color = Color(0.078431375, 0.08627451, 0.15294118, 1.0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3137255, 0.4745098, 0.7529412, 1.0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 32.0
+content_margin_top = 26.0
+content_margin_right = 32.0
+content_margin_bottom = 26.0
+
+[node name="predict" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("s1")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 0.05490196, 0.1, 1.0)
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48.0
+theme_override_constants/margin_top = 28.0
+theme_override_constants/margin_right = 48.0
+theme_override_constants/margin_bottom = 28.0
+
+[node name="column" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+theme_override_constants/separation = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="title_label" type="Label" parent="margin/column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.96, 1.0, 1.0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.5
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 32
+text = "PREDICT THE PATTERN"
+horizontal_alignment = 1
+
+[node name="subtitle_label" type="Label" parent="margin/column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5803922, 0.6392157, 0.72156864, 1.0)
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 15
+text = "WHAT COMES NEXT IN THE SEQUENCE?"
+horizontal_alignment = 1
+
+[node name="hud" type="HBoxContainer" parent="margin/column"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 64.0
+
+[node name="timer_label" type="Label" parent="margin/column/hud"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 18
+text = "TIME 120.0"
+
+[node name="progress_label" type="Label" parent="margin/column/hud"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 18
+text = "ROUND 1 / 12"
+
+[node name="score_label" type="Label" parent="margin/column/hud"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.85882354, 0.5294118, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 18
+text = "SCORE 0"
+
+[node name="sequence_row" type="HBoxContainer" parent="margin/column"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 18.0
+
+[node name="options_row" type="HBoxContainer" parent="margin/column"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 24.0
+
+[node name="feedback_label" type="Label" parent="margin/column"]
+custom_minimum_size = Vector2(0.0, 26.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 18
+text = ""
+horizontal_alignment = 1
+
+[node name="footer" type="HBoxContainer" parent="margin/column"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 24.0
+
+[node name="back_button" type="Button" parent="margin/column/footer"]
+custom_minimum_size = Vector2(150.0, 42.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 1.0, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("btn_normal")
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_hover")
+text = "SKIP GAME"
+
+[node name="replay_button" type="Button" parent="margin/column/footer"]
+custom_minimum_size = Vector2(150.0, 42.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 1.0, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("btn_normal")
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_hover")
+text = "REPLAY"
+
+[node name="game_over" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("panel_style")
+
+[node name="game_over_layout" type="VBoxContainer" parent="game_over"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 22.0
+
+[node name="game_over_title" type="Label" parent="game_over/game_over_layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.85882354, 0.5294118, 1.0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.6
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 30
+text = "PATTERN COMPLETE"
+horizontal_alignment = 1
+
+[node name="game_over_stats" type="VBoxContainer" parent="game_over/game_over_layout"]
+layout_mode = 2
+theme_override_constants/separation = 10.0
+
+[node name="score_line" type="Label" parent="game_over/game_over_layout/game_over_stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.96, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 24
+text = "SCORE 0"
+horizontal_alignment = 1
+
+[node name="detail_line" type="Label" parent="game_over/game_over_layout/game_over_stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5803922, 0.6392157, 0.72156864, 1.0)
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 16
+text = "CORRECT 0  |  WRONG 0  |  AVG 0.0s"
+horizontal_alignment = 1
+
+[node name="game_over_buttons" type="HBoxContainer" parent="game_over/game_over_layout"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 22.0
+
+[node name="continue_button" type="Button" parent="game_over/game_over_layout/game_over_buttons"]
+custom_minimum_size = Vector2(160.0, 44.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 1.0, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("btn_normal")
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_hover")
+text = "CONTINUE"
+
+[node name="restart_button" type="Button" parent="game_over/game_over_layout/game_over_buttons"]
+custom_minimum_size = Vector2(160.0, 44.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 1.0, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("btn_normal")
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_hover")
+text = "PLAY AGAIN"
+
+[node name="close_button" type="Button" parent="game_over/game_over_layout/game_over_buttons"]
+custom_minimum_size = Vector2(160.0, 44.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 1.0, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("btn_normal")
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_hover")
+text = "CLOSE"

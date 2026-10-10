@@ -1,0 +1,450 @@
+[gd_scene format=3]
+
+
+[ext_resource type="Script" path="res://scripts/jee_advanced.gd" id="s1"]
+
+[ext_resource type="FontFile" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="f1"]
+
+[ext_resource type="FontFile" path="res://assets/fonts/PixelOperator8.ttf" id="f2"]
+
+[sub_resource type="StyleBoxFlat" id="s1"]
+bg_color = Color(0.078431372549019604, 0.086274509803921568, 0.15294117647058825, 1.0)
+border_width_left = 1.0
+border_width_top = 1.0
+border_width_right = 1.0
+border_width_bottom = 1.0
+border_color = Color(0.31764705882352942, 0.50588235294117647, 0.76078431372549018, 1.0)
+corner_radius_bottom_left = 8.0
+corner_radius_top_left = 8.0
+corner_radius_top_right = 8.0
+corner_radius_bottom_right = 8.0
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+
+[node name="jee_advanced" type="Control" unique_id=1]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+script = ExtResource("s1")
+
+size_flags_vertical = 0
+[node name="background" type="ColorRect" parent="." unique_id=2]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 0.05490196, 0.1, 1.0)
+
+
+size_flags_vertical = 0
+[node name="container" type="PanelContainer" parent="." unique_id=3]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("s1")
+[node name="main_layout" type="VBoxContainer" parent="container" unique_id=4]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 14.0
+
+
+[node name="title_label" type="Label" parent="container/main_layout" unique_id=5]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.96, 1.0, 1.0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.5
+theme_override_fonts/font = ExtResource("f1")
+text = "JEE ADVANCED: THE PRESSURE TEST"
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="info_bar" type="HBoxContainer" parent="container/main_layout" unique_id=6]
+layout_mode = 2
+theme_override_constants/separation = 24.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="timer_label" type="Label" parent="container/main_layout/info_bar" unique_id=7]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.4
+theme_override_fonts/font = ExtResource("f2")
+text = "TIME 90.0s"
+size_flags_horizontal = 1
+size_flags_vertical = 0
+
+
+[node name="progress_label" type="Label" parent="container/main_layout/info_bar" unique_id=8]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.4
+theme_override_fonts/font = ExtResource("f2")
+text = "Q 1 / 9"
+size_flags_horizontal = 1
+size_flags_vertical = 0
+
+
+[node name="score_label" type="Label" parent="container/main_layout/info_bar" unique_id=9]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.8588235294117647, 0.5294117647058824, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.4
+theme_override_fonts/font = ExtResource("f2")
+text = "SCORE 0"
+size_flags_horizontal = 1
+size_flags_vertical = 0
+
+
+[node name="question_scroll" type="ScrollContainer" parent="container/main_layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="question_panel" type="PanelContainer" parent="container/main_layout/question_scroll" unique_id=10]
+layout_mode = 2
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("s1")
+
+
+[node name="question_content" type="VBoxContainer" parent="container/main_layout/question_scroll/question_panel" unique_id=11]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 12.0
+
+
+[node name="question_header" type="HBoxContainer" parent="container/main_layout/question_scroll/question_panel/question_content" unique_id=12]
+layout_mode = 2
+theme_override_constants/separation = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+
+[node name="question_subject" type="Label" parent="container/main_layout/question_scroll/question_panel/question_content/question_header" unique_id=13]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4784313725490196, 0.6431372549019608, 0.8509803921568628, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.5
+theme_override_fonts/font = ExtResource("f2")
+text = "PHYSICS"
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="question_type" type="Label" parent="container/main_layout/question_scroll/question_panel/question_content/question_header" unique_id=14]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4784313725490196, 0.6431372549019608, 0.8509803921568628, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.5
+theme_override_fonts/font = ExtResource("f2")
+text = "MCQ"
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="question_prompt" type="Label" parent="container/main_layout/question_scroll/question_panel/question_content" unique_id=15]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.96, 1.0, 1.0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.6
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 18
+text = ""
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+
+[node name="options_panel" type="VBoxContainer" parent="container/main_layout/question_scroll/question_panel/question_content" unique_id=16]
+layout_mode = 2
+theme_override_constants/separation = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+
+[node name="actions_row" type="HBoxContainer" parent="container/main_layout" unique_id=17]
+layout_mode = 2
+theme_override_constants/separation = 16.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="submit_btn" type="Button" parent="container/main_layout/actions_row" unique_id=18]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("s1")
+theme_override_styles/hover = SubResource("s1")
+theme_override_styles/pressed = SubResource("s1")
+text = "SUBMIT"
+custom_minimum_size = Vector2(130.0, 40.0)
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="next_btn" type="Button" parent="container/main_layout/actions_row" unique_id=19]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("s1")
+theme_override_styles/hover = SubResource("s1")
+theme_override_styles/pressed = SubResource("s1")
+text = "NEXT"
+custom_minimum_size = Vector2(130.0, 40.0)
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="clear_btn" type="Button" parent="container/main_layout/actions_row" unique_id=20]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("s1")
+theme_override_styles/hover = SubResource("s1")
+theme_override_styles/pressed = SubResource("s1")
+text = "CLEAR"
+custom_minimum_size = Vector2(130.0, 40.0)
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="feedback_label" type="Label" parent="container/main_layout/actions_row" unique_id=21]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.4
+theme_override_fonts/font = ExtResource("f2")
+text = ""
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="solution_box" type="Label" parent="container/main_layout/question_scroll/question_panel/question_content" unique_id=22]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.98, 1.0, 1.0)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_opacity = 0.4
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 13
+text = ""
+size_flags_horizontal = 3
+size_flags_vertical = 0
+visible = false
+
+
+[node name="restart_btn" type="Button" parent="container/main_layout" unique_id=23]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 1.0, 1.0)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("s1")
+theme_override_styles/hover = SubResource("s1")
+theme_override_styles/pressed = SubResource("s1")
+text = "RESTART"
+custom_minimum_size = Vector2(130.0, 40.0)
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+
+[node name="finish_panel" type="PanelContainer" parent="." unique_id=24]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+theme_override_styles/panel = SubResource("s1")
+
+
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[node name="finish_layout" type="VBoxContainer" parent="finish_panel" unique_id=25]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12.0
+
+
+[node name="title_label" type="Label" parent="finish_panel/finish_layout" unique_id=26]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.8588235294117647, 0.5294117647058824, 1.0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.5
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 22
+text = "JEE ADVANCED COMPLETE"
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="stats_row" type="HBoxContainer" parent="finish_panel/finish_layout" unique_id=27]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 24.0
+
+
+size_flags_vertical = 0
+[node name="score_label" type="Label" parent="finish_panel/finish_layout/stats_row" unique_id=28]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.7
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 26
+text = "SCORE 0"
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="correct_label" type="Label" parent="finish_panel/finish_layout/stats_row" unique_id=29]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.7
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 14
+text = "CORRECT: 0"
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="incorrect_label" type="Label" parent="finish_panel/finish_layout/stats_row" unique_id=30]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.7
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 14
+text = "INCORRECT: 0"
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="unanswered_label" type="Label" parent="finish_panel/finish_layout/stats_row" unique_id=31]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.7
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 14
+text = "UNANSWERED: 0"
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="time_label" type="Label" parent="finish_panel/finish_layout/stats_row" unique_id=32]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_opacity = 0.7
+theme_override_fonts/font = ExtResource("f2")
+theme_override_font_sizes/font_size = 14
+text = "TIME 0.0s"
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="finish_buttons" type="HBoxContainer" parent="finish_panel/finish_layout" unique_id=33]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 16.0
+
+
+size_flags_vertical = 0
+[node name="restart_btn" type="Button" parent="finish_panel/finish_layout/finish_buttons" unique_id=34]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("s1")
+theme_override_styles/hover = SubResource("s1")
+theme_override_styles/pressed = SubResource("s1")
+text = "RESTART"
+custom_minimum_size = Vector2(150.0, 44.0)
+size_flags_horizontal = 2
+
+
+size_flags_vertical = 0
+[node name="next_btn" type="Button" parent="finish_panel/finish_layout/finish_buttons" unique_id=35]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("f1")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("s1")
+theme_override_styles/hover = SubResource("s1")
+theme_override_styles/pressed = SubResource("s1")
+text = "NEXT"
+custom_minimum_size = Vector2(150.0, 44.0)
+size_flags_horizontal = 2
+
+size_flags_vertical = 0

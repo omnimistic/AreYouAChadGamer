@@ -24,8 +24,8 @@ func _on_begin_pressed() -> void:
 
 func back_to_menu() -> void:
 	var tween_in = create_tween()
-	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_IN)
 	await tween_in.finished
 
@@ -36,15 +36,14 @@ func back_to_menu() -> void:
 	begin_btn.disabled = false
 
 	var tween_out = create_tween()
-	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_OUT)
 
 func transition_to_scene(scene_path: String) -> void:
-	
 	var tween_in = create_tween()
-	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_IN)
 	await tween_in.finished
 	
@@ -65,9 +64,13 @@ func transition_to_scene(scene_path: String) -> void:
 		elif scene_path.ends_with("block_dodge.tscn"):
 			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/pat_manware.tscn"))
 		elif scene_path.ends_with("pat_manware.tscn"):
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/jee_advanced.tscn"))
+		elif scene_path.ends_with("jee_advanced.tscn"):
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/predict.tscn"))
+		elif scene_path.ends_with("predict.tscn"):
 			new_scene.game_finished.connect(back_to_menu)
 
 	var tween_out = create_tween()
-	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_OUT)

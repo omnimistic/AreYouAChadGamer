@@ -99,7 +99,7 @@ func get_audio_time_ms() -> float:
 	return float(Time.get_ticks_msec() - song_start_msec)
 
 func _process(delta: float) -> void:
-	var spring_force = -SPRING_STIFFNESS * scale_displacement - SPRING_DAMPING * scale_velocity
+	var spring_force = - SPRING_STIFFNESS * scale_displacement - SPRING_DAMPING * scale_velocity
 	scale_velocity += spring_force * delta
 	scale_displacement += scale_velocity * delta
 	manware.scale = Vector2.ONE + scale_displacement
@@ -221,8 +221,8 @@ func handle_loss() -> void:
 	status_label.text = "MANWARE EXPLODED!"
 
 	var tw = create_tween()
-	tw.tween_property(manware, "scale", Vector2(2.4, 2.4), 0.2)\
-		.set_trans(Tween.TRANS_BACK)\
+	tw.tween_property(manware, "scale", Vector2(2.4, 2.4), 0.2) \
+		.set_trans(Tween.TRANS_BACK) \
 		.set_ease(Tween.EASE_OUT)
 	tw.parallel().tween_property(manware, "modulate", Color(5.0, 0.2, 0.2, 0.0), 0.25)
 	await tw.finished
