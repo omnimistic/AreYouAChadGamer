@@ -2,22 +2,12 @@ extends Control
 
 signal game_finished
 
-## "Predict" = predict the next element of a visual sequence.
-##
-## A row of shape tiles forms a repeating rule (period 2 or 3, doubled pairs, a
-## rotating shape, or a cycling colour) and the last tile is hidden behind a "?".
-## Four candidate tiles are offered; exactly one continues the rule.
-##
-## The shapes are painted in code rather than typed as glyphs on purpose: the pixel
-## font has no circle/star characters, and drawing them keeps the board readable at
-## any tile size.
-
 const TIME_LIMIT := 120.0
 const CORRECT_POINTS := 10.0
 const WRONG_PENALTY := 5.0
 const ROUND_COUNT := 12
 const REVEAL_DELAY := 0.9
-const SEQUENCE_SHOWN := 5      # visible tiles before the hidden one
+const SEQUENCE_SHOWN := 5      
 
 const TILE_SIZE := 88.0
 const OPTION_SIZE := 104.0
@@ -31,15 +21,15 @@ const COLOR_TILE_BG := Color(0.11764706, 0.12941177, 0.21176471, 1.0)
 const COLOR_TILE_BORDER := Color(0.3137255, 0.4745098, 0.7529412, 1.0)
 
 const SHAPE_COLORS := [
-	Color(0.3529412, 0.61960787, 0.9529412, 1.0),   # blue
-	Color(1.0, 0.72156864, 0.3019608, 1.0),         # amber
-	Color(0.8980392, 0.41568628, 1.0, 1.0),         # magenta
-	Color(0.3137255, 0.90588236, 0.65882355, 1.0),  # green
-	Color(1.0, 0.54901963, 0.47058824, 1.0),        # coral
-	Color(0.7058824, 0.75686276, 1.0, 1.0),         # periwinkle
+	Color(0.3529412, 0.61960787, 0.9529412, 1.0),   
+	Color(1.0, 0.72156864, 0.3019608, 1.0),         
+	Color(0.8980392, 0.41568628, 1.0, 1.0),         
+	Color(0.3137255, 0.90588236, 0.65882355, 1.0),  
+	Color(1.0, 0.54901963, 0.47058824, 1.0),        
+	Color(0.7058824, 0.75686276, 1.0, 1.0),         
 ]
 
-## One drawn shape. Doubles as a clickable answer tile when `clickable` is set.
+
 class ShapeTile extends Control:
 	signal chosen(index: int)
 
@@ -58,8 +48,8 @@ class ShapeTile extends Control:
 
 	var shape_id := SHAPE_CIRCLE
 	var tint := Color(1, 1, 1, 1)
-	var angle := 0.0            # degrees, only meaningful for the pointed shapes
-	var unknown := false        # draws the "?" placeholder
+	var angle := 0.0            
+	var unknown := false        
 	var clickable := false
 	var option_index := -1
 	var ring := Color(0, 0, 0, 0)
@@ -105,7 +95,7 @@ class ShapeTile extends Control:
 			draw_rect(inner, bg, true)
 			draw_rect(inner, TILE_BORDER, false, 2.0)
 		else:
-			# a faint plate keeps the sequence reading as a row of tiles
+			
 			draw_rect(inner, Color(TILE_BG.r, TILE_BG.g, TILE_BG.b, 0.55), true)
 
 		var radius := minf(size.x, size.y) * 0.31
@@ -160,7 +150,7 @@ class ShapeTile extends Control:
 @onready var restart_button: Button = $game_over/game_over_layout/game_over_buttons/restart_button
 @onready var close_button: Button = $game_over/game_over_layout/game_over_buttons/close_button
 
-# The harness reads this to answer correctly without re-deriving the rule.
+
 var correct_option_index := -1
 
 var _puzzle: Dictionary = {}
@@ -281,7 +271,7 @@ func _on_finish_pressed() -> void:
 	if game_over.visible:
 		game_finished.emit()
 
-# ------------------------------------------------------------------ rendering
+
 func _clear(container: Node) -> void:
 	for child in container.get_children():
 		container.remove_child(child)
@@ -293,7 +283,7 @@ func _build_sequence(sequence: Array) -> void:
 		if i >= sequence.size():
 			break
 		sequence_row.add_child(_make_tile(sequence[i], false, -1, TILE_SIZE))
-	# the hidden element the player has to predict
+	
 	var unknown_tile := ShapeTile.new()
 	unknown_tile.unknown = true
 	unknown_tile.custom_minimum_size = Vector2(TILE_SIZE, TILE_SIZE)
@@ -312,14 +302,14 @@ func _make_tile(spec: Dictionary, clickable: bool, index: int, tile_size: float)
 	tile.clickable = clickable
 	tile.option_index = index
 	tile.custom_minimum_size = Vector2(tile_size, tile_size)
-	# the sequence row absorbs the spare height, and a stretching HBox child would turn
-	# every tile into a tall rectangle with a tiny shape floating in the middle
+	
+	
 	tile.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	if clickable:
 		tile.chosen.connect(_on_tile_chosen)
 	return tile
 
-# ------------------------------------------------------------ puzzle authoring
+
 func _make_puzzle() -> Dictionary:
 	var spec: Dictionary
 	match randi() % 5:
@@ -339,7 +329,7 @@ func _make_puzzle() -> Dictionary:
 func _base_spec(shape: int, tint: Color, angle: float) -> Dictionary:
 	return {"shape": shape, "tint": tint, "angle": angle}
 
-## Shapes laid out on a repeating cycle of `period` distinct shapes.
+
 func _puzzle_cycle(period: int) -> Dictionary:
 	var vocabulary := ShapeTile.VOCABULARY.duplicate()
 	vocabulary.shuffle()
@@ -361,7 +351,7 @@ func _puzzle_cycle(period: int) -> Dictionary:
 		options.append(_base_spec(int(shape), SHAPE_COLORS[int(shape)], 0.0))
 	return {"sequence": sequence, "answer": answer, "options": options, "rule": "cycle%d" % period}
 
-## Two of one shape then two of another: A A B B A A ...
+
 func _puzzle_doubled() -> Dictionary:
 	var vocabulary := ShapeTile.VOCABULARY.duplicate()
 	vocabulary.shuffle()
@@ -372,8 +362,8 @@ func _puzzle_doubled() -> Dictionary:
 		var shape := first if i % 4 < 2 else second
 		sequence.append(_base_spec(shape, SHAPE_COLORS[shape], 0.0))
 	var answer: Dictionary = sequence[SEQUENCE_SHOWN]
-	# Collect genuinely distinct wrong shapes: the two shapes used by the rule can be
-	# only one apart from the answer, which would leave a three-tile row.
+	
+	
 	var options: Array = [answer]
 	for shape in vocabulary:
 		if options.size() >= 4:
@@ -388,7 +378,7 @@ func _puzzle_doubled() -> Dictionary:
 			options.append(_base_spec(int(shape), SHAPE_COLORS[int(shape)], 0.0))
 	return {"sequence": sequence, "answer": answer, "options": options, "rule": "doubled"}
 
-## One triangle turning a quarter turn each step.
+
 func _puzzle_rotation() -> Dictionary:
 	var shape := ShapeTile.SHAPE_TRIANGLE
 	var tint: Color = SHAPE_COLORS[2]
@@ -402,7 +392,7 @@ func _puzzle_rotation() -> Dictionary:
 			options.append(_base_spec(shape, tint, angle))
 	return {"sequence": sequence, "answer": answer, "options": options, "rule": "rotation"}
 
-## Same shape, colour cycling in a repeating period.
+
 func _puzzle_palette() -> Dictionary:
 	var period := 2 if randi() % 2 == 0 else 3
 	var shape := ShapeTile.SHAPE_SQUARE if randi() % 2 == 0 else ShapeTile.SHAPE_CIRCLE
@@ -423,10 +413,10 @@ func _puzzle_palette() -> Dictionary:
 			options.append(_base_spec(shape, tint, 0.0))
 	return {"sequence": sequence, "answer": answer, "options": options, "rule": "palette%d" % period}
 
-## Reduces the candidates to four distinct tiles, puts the correct one somewhere in
-## the row, and reports which slot it landed in. Every rule offers at least three
-## distinct wrong answers (6 shapes, 6 colours, 4 orientations), so a full row of
-## four is always reachable.
+
+
+
+
 func _finalise_options(spec: Dictionary) -> int:
 	var answer: Dictionary = spec["answer"]
 	var answer_key := _option_key(answer)

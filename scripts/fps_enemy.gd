@@ -10,7 +10,7 @@ signal enemy_escaped
 @export var min_scale: float = 0.35
 @export var max_scale: float = 2.2
 
-enum State { SPAWNING, APPROACHING, DYING }
+enum State {SPAWNING, APPROACHING, DYING}
 var current_state: State = State.SPAWNING
 var current_scale_factor: float = 0.35
 

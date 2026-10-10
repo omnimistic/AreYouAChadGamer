@@ -15,20 +15,14 @@ const COLOR_INCORRECT := Color(1.0, 0.3647, 0.4471, 1.0)
 const COLOR_DIMMED := Color(0.55, 0.6, 0.72, 1.0)
 const COLOR_PANEL_BORDER := Color(0.3137, 0.4745, 0.7529, 1.0)
 
-# Original question bank: single-correct, multiple-correct and numerical items.
 const BANK: Dictionary = {
 	"jee_p1": {
 		"subject": "Physics",
 		"type": "single",
 		"prompt": "A particle moves along the x-axis with position x(t) = t^3 - 6t^2 + 9t + 2 (SI units). The particle is momentarily at rest at t = 1 s and t = 3 s. What is the total distance traveled between t = 0 and t = 4 s?",
-		"options": {
-			"opt_a": "10 m",
-			"opt_b": "12 m",
-			"opt_c": "14 m",
-			"opt_d": "16 m"
-		},
+		"options": {"opt_a": "10 m", "opt_b": "12 m", "opt_c": "14 m", "opt_d": "16 m"},
 		"answer": "opt_b",
-		"solution": "v(t) = 3(t-1)(t-3). At t=0: x=2. At t=1: x=6. At t=3: x=2. At t=4: x=6. Distance = |6-2| + |2-6| + |6-2| = 4 + 4 + 4 = 12 m."
+		"solution": "v(t) = 3(t-1)(t-3). At t=0: x=2. At t=1: x=6. At t=3: x=2. At t=4: x=6. Distance = |6-2| + |2-6| + |6-2| = 4 + 4 + 4 = 12 m.",
 	},
 	"jee_p2": {
 		"subject": "Physics",
@@ -38,23 +32,18 @@ const BANK: Dictionary = {
 			"opt_a": "For small x the restoring force is approximately -2kx.",
 			"opt_b": "The motion is simple harmonic for all x.",
 			"opt_c": "The period depends on the amplitude for small oscillations.",
-			"opt_d": "If the table is inclined along the line, the equilibrium shifts but small oscillations around it remain SHM."
+			"opt_d": "If the table is inclined along the line, the equilibrium shifts but small oscillations around it remain SHM.",
 		},
 		"answer": ["opt_a", "opt_d"],
-		"solution": "Each spring gives -kx for small x, total -2kx (A correct). For large x a spring can go slack, so not SHM for all x (B wrong). SHM period is independent of amplitude (C wrong). On an incline, gravity shifts equilibrium but the linearized force around the new equilibrium is still -2kx' (D correct)."
+		"solution": "Each spring gives -kx for small x, total -2kx (A correct). For large x a spring can go slack, so not SHM for all x (B wrong). SHM period is independent of amplitude (C wrong). On an incline, gravity shifts equilibrium but the linearized force around the new equilibrium is still -2kx' (D correct).",
 	},
 	"jee_p3": {
 		"subject": "Physics",
 		"type": "numerical",
 		"prompt": "A 2 kg mass hangs freely and a 3 kg mass rests on a smooth horizontal table; they are connected by a light inextensible string over a smooth pulley. The system is released from rest. Find the acceleration in m/s^2, rounded to two decimals.",
-		"options": {
-			"opt_a": "2.94",
-			"opt_b": "4.90",
-			"opt_c": "1.96",
-			"opt_d": "3.92"
-		},
+		"options": {"opt_a": "2.94", "opt_b": "4.90", "opt_c": "1.96", "opt_d": "3.92"},
 		"answer": "opt_d",
-		"solution": "a = (2g)/(2+3) = 19.6/5 = 3.92 m/s^2. The correct option is 3.92."
+		"solution": "a = (2g)/(2+3) = 19.6/5 = 3.92 m/s^2. The correct option is 3.92.",
 	},
 	"jee_c1": {
 		"subject": "Chemistry",
@@ -64,10 +53,10 @@ const BANK: Dictionary = {
 			"opt_a": "Axial positions of a trigonal bipyramid.",
 			"opt_b": "Equatorial positions, giving a see-saw shape.",
 			"opt_c": "Two axial and two equatorial positions in an octahedron, giving square planar.",
-			"opt_d": "Two opposite axial positions of an octahedron, giving square planar."
+			"opt_d": "Two opposite axial positions of an octahedron, giving square planar.",
 		},
 		"answer": "opt_d",
-		"solution": "XeF4: Xe has 8 valence electrons, 4 used in Xe-F bonds, leaving 4 electrons = 2 lone pairs. Steric number 6 (octahedral electron geometry). Lone pairs occupy opposite axial positions to minimize repulsion, leaving the four F atoms in a square plane: square planar (D correct)."
+		"solution": "XeF4: Xe has 8 valence electrons, 4 used in Xe-F bonds, leaving 4 electrons = 2 lone pairs. Steric number 6 (octahedral electron geometry). Lone pairs occupy opposite axial positions to minimize repulsion, leaving the four F atoms in a square plane: square planar (D correct).",
 	},
 	"jee_c2": {
 		"subject": "Chemistry",
@@ -77,36 +66,26 @@ const BANK: Dictionary = {
 			"opt_a": "The reaction is stereospecific with respect to the dienophile geometry.",
 			"opt_b": "The reaction proceeds through a cyclic concerted transition state.",
 			"opt_c": "The diene must adopt an s-cis conformation to react.",
-			"opt_d": "The reaction is a photochemical [2+2] cycloaddition."
+			"opt_d": "The reaction is a photochemical [2+2] cycloaddition.",
 		},
 		"answer": ["opt_a", "opt_b", "opt_c"],
-		"solution": "Diels-Alder is a concerted [4+2] cycloaddition with a cyclic transition state (B correct). It is stereospecific: the dienophile's stereochemistry is retained in the adduct (A correct). The diene must be s-cis, not s-trans, to react (C correct). It is not a photochemical [2+2] reaction (D wrong)."
+		"solution": "Diels-Alder is a concerted [4+2] cycloaddition with a cyclic transition state (B correct). It is stereospecific: the dienophile's stereochemistry is retained in the adduct (A correct). The diene must be s-cis, not s-trans, to react (C correct). It is not a photochemical [2+2] reaction (D wrong).",
 	},
 	"jee_c3": {
 		"subject": "Chemistry",
 		"type": "numerical",
 		"prompt": "A 0.500 mol sample of an ideal gas is compressed isothermally at 300 K from an initial volume of 12.0 L to a final volume of 6.0 L. Calculate the work done ON the gas in kJ. Use R = 8.314 J/mol-K. Round the final answer to two decimals.",
-		"options": {
-			"opt_a": "0.86",
-			"opt_b": "-0.86",
-			"opt_c": "8.64",
-			"opt_d": "-8.64"
-		},
+		"options": {"opt_a": "0.86", "opt_b": "-0.86", "opt_c": "8.64", "opt_d": "-8.64"},
 		"answer": "opt_a",
-		"solution": "W_on = -nRT ln(Vf/Vi) = -0.5*8.314*300*ln(6/12) = -1247.1*ln(0.5) = 864.2 J = 0.86 kJ. The correct option is 0.86 kJ."
+		"solution": "W_on = -nRT ln(Vf/Vi) = -0.5*8.314*300*ln(6/12) = -1247.1*ln(0.5) = 864.2 J = 0.86 kJ. The correct option is 0.86 kJ.",
 	},
 	"jee_m1": {
 		"subject": "Mathematics",
 		"type": "single",
 		"prompt": "Let f(x) = x^4 - 4x^3 + 6x^2 - 4x + 2. The function has exactly one real local minimum. Find its x-coordinate.",
-		"options": {
-			"opt_a": "0",
-			"opt_b": "1",
-			"opt_c": "2",
-			"opt_d": "3"
-		},
+		"options": {"opt_a": "0", "opt_b": "1", "opt_c": "2", "opt_d": "3"},
 		"answer": "opt_b",
-		"solution": "f'(x) = 4(x-1)^3. Critical point at x=1. Sign of f': negative before 1, positive after 1, so x=1 is a local minimum. x-coordinate = 1."
+		"solution": "f'(x) = 4(x-1)^3. Critical point at x=1. Sign of f': negative before 1, positive after 1, so x=1 is a local minimum. x-coordinate = 1.",
 	},
 	"jee_m2": {
 		"subject": "Mathematics",
@@ -116,23 +95,18 @@ const BANK: Dictionary = {
 			"opt_a": "Integral from 0 to pi of sin^2(x) dx.",
 			"opt_b": "Integral from 0 to pi of sin(x) dx.",
 			"opt_c": "Integral from 0 to pi/2 of sin^2(x) dx.",
-			"opt_d": "Integral from 0 to pi of sin(x) cos(x) dx."
+			"opt_d": "Integral from 0 to pi of sin(x) cos(x) dx.",
 		},
 		"answer": "opt_a",
-		"solution": "Integral_0^pi sin^2(x) dx = pi/2 (A correct). Integral_0^pi sin(x) dx = 2 (B wrong). Integral_0^(pi/2) sin^2(x) dx = pi/4 (C wrong). Integral_0^pi sin(x)cos(x) dx = 0 (D wrong). The correct choice is A."
+		"solution": "Integral_0^pi sin^2(x) dx = pi/2 (A correct). Integral_0^pi sin(x) dx = 2 (B wrong). Integral_0^(pi/2) sin^2(x) dx = pi/4 (C wrong). Integral_0^pi sin(x)cos(x) dx = 0 (D wrong). The correct choice is A.",
 	},
 	"jee_m3": {
 		"subject": "Mathematics",
 		"type": "numerical",
 		"prompt": "If the sum of the first n positive integers is 5050, find the value of n.",
-		"options": {
-			"opt_a": "99",
-			"opt_b": "100",
-			"opt_c": "101",
-			"opt_d": "102"
-		},
+		"options": {"opt_a": "99", "opt_b": "100", "opt_c": "101", "opt_d": "102"},
 		"answer": "opt_b",
-		"solution": "n(n+1)/2 = 5050 => n(n+1) = 10100 => n^2 + n - 10100 = 0 => discriminant = 1 + 40400 = 40401, sqrt = 201. n = (-1 + 201)/2 = 100. So n = 100."
+		"solution": "n(n+1)/2 = 5050 => n(n+1) = 10100 => n^2 + n - 10100 = 0 => discriminant = 1 + 40400 = 40401, sqrt = 201. n = (-1 + 201)/2 = 100. So n = 100.",
 	},
 	"jee_p4": {
 		"subject": "Physics",
@@ -142,10 +116,10 @@ const BANK: Dictionary = {
 			"opt_a": "3g / (2L)",
 			"opt_b": "2g / (3L)",
 			"opt_c": "g / L",
-			"opt_d": "g / (2L)"
+			"opt_d": "g / (2L)",
 		},
 		"answer": "opt_a",
-		"solution": "Torque about the pivot = Mg * (L/2). Moment of inertia about the end = ML^2/3. Angular acceleration = torque / I = (MgL/2) / (ML^2/3) = 3g/(2L)."
+		"solution": "Torque about the pivot = Mg * (L/2). Moment of inertia about the end = ML^2/3. Angular acceleration = torque / I = (MgL/2) / (ML^2/3) = 3g/(2L).",
 	},
 	"jee_c4": {
 		"subject": "Chemistry",
@@ -155,11 +129,11 @@ const BANK: Dictionary = {
 			"opt_a": "The salt formed does not hydrolyze.",
 			"opt_b": "The concentration of hydrogen ions equals the concentration of hydroxide ions from water auto-ionization.",
 			"opt_c": "Both the acid and base are completely neutralized, and the resulting solution contains only water and a neutral salt.",
-			"opt_d": "The base is fully ionized, so the pH is fixed at 7.0."
+			"opt_d": "The base is fully ionized, so the pH is fixed at 7.0.",
 		},
 		"answer": "opt_c",
-		"solution": "At the equivalence point of a strong acid/strong base titration, moles of H+ equal moles of OH-. The products are water and a salt with ions that do not hydrolyze, so neither ion is acidic or basic. The pH is determined by water alone, giving pH = 7.0 at 25 C."
-	}
+		"solution": "At the equivalence point of a strong acid/strong base titration, moles of H+ equal moles of OH-. The products are water and a salt with ions that do not hydrolyze, so neither ion is acidic or basic. The pH is determined by water alone, giving pH = 7.0 at 25 C.",
+	},
 }
 
 @onready var background: ColorRect = $background
@@ -196,6 +170,7 @@ var _round_active := false
 var _button_style: StyleBoxFlat
 var _button_style_hover: StyleBoxFlat
 
+
 func _ready() -> void:
 	_button_style = _make_button_style(Color(0.1294, 0.1490, 0.2431, 1.0))
 	_button_style_hover = _make_button_style(Color(0.2157, 0.2510, 0.4000, 1.0))
@@ -211,6 +186,7 @@ func _ready() -> void:
 	finish_next_btn.pressed.connect(_on_finish_next_pressed)
 	_start_round()
 
+
 func _process(_delta: float) -> void:
 	if not _round_active:
 		return
@@ -218,6 +194,7 @@ func _process(_delta: float) -> void:
 	timer_label.text = "TIME %.1fs" % maxf(0.0, TIME_LIMIT - elapsed)
 	if elapsed >= TIME_LIMIT:
 		_finish_round()
+
 
 func _start_round() -> void:
 	_keys = BANK.keys()
@@ -228,6 +205,7 @@ func _start_round() -> void:
 	finish_panel.visible = false
 	container.visible = true
 	_show_question()
+
 
 func _show_question() -> void:
 	if _current_index >= _keys.size():
@@ -250,22 +228,19 @@ func _show_question() -> void:
 	score_label.text = "CORRECT %d" % _correct_so_far()
 	question_scroll.scroll_vertical = 0
 
-# An autowrapping Label has no width until something gives it one, and inside a
-# ScrollContainer that means the wrap never happens: the label reports a single
-# enormous line, the panel grows to match, and the whole thing runs off screen.
-# Tying the wrap width to the real control width keeps it honest at any resolution.
+
 func _sync_text_width() -> void:
 	var wrap_width := maxf(420.0, size.x - 200.0)
 	prompt_text.custom_minimum_size = Vector2(wrap_width, 0.0)
 	solution_box.custom_minimum_size = Vector2(wrap_width, 0.0)
 
-# Worked solutions are longer than the visible strip, so bring them into view
-# instead of leaving the reader to discover that the box scrolls.
+
 func _scroll_to_solution() -> void:
 	await get_tree().process_frame
 	if not is_instance_valid(question_scroll) or solution_box == null:
 		return
 	question_scroll.scroll_vertical = int(question_scroll.get_v_scroll_bar().max_value)
+
 
 func _type_text(type_name: String) -> String:
 	match type_name:
@@ -275,6 +250,7 @@ func _type_text(type_name: String) -> String:
 			return "NUMERICAL"
 		_:
 			return "SINGLE CHOICE"
+
 
 func _build_options(q: Dictionary, key: String) -> void:
 	for child in options_panel.get_children():
@@ -288,9 +264,7 @@ func _build_options(q: Dictionary, key: String) -> void:
 		btn.text = "%s. %s" % [opt_id.substr(4).to_upper(), str(opt_map[opt_id])]
 		btn.toggle_mode = true
 		btn.focus_mode = Control.FOCUS_NONE
-		# Option text can be a whole sentence. Without wrapping, the button's minimum
-		# width is its single-line text width (up to ~1300px), which propagates up
-		# through the containers and makes the panel wider than the window.
+
 		btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -309,6 +283,7 @@ func _build_options(q: Dictionary, key: String) -> void:
 		btn.toggled.connect(_on_option_toggled.bind(opt_id, key))
 		options_panel.add_child(btn)
 
+
 func _on_option_toggled(toggled_on: bool, opt_id: String, key: String) -> void:
 	if not _round_active or _results.has(key):
 		return
@@ -322,12 +297,14 @@ func _on_option_toggled(toggled_on: bool, opt_id: String, key: String) -> void:
 					other.set_pressed_no_signal(false)
 	_refresh_submit()
 
+
 func _refresh_submit() -> void:
 	for child in options_panel.get_children():
 		if child is Button and (child as Button).button_pressed:
 			submit_btn.disabled = false
 			return
 	submit_btn.disabled = true
+
 
 func _selected_options() -> Array[String]:
 	var selected: Array[String] = []
@@ -336,6 +313,7 @@ func _selected_options() -> Array[String]:
 			selected.append(str((child as Button).get_meta("opt_id", "")))
 	selected.sort()
 	return selected
+
 
 func _on_submit_pressed() -> void:
 	if not _round_active:
@@ -372,6 +350,7 @@ func _on_submit_pressed() -> void:
 	next_btn.disabled = false
 	score_label.text = "CORRECT %d" % _correct_so_far()
 
+
 func _on_next_pressed() -> void:
 	if not _round_active:
 		return
@@ -380,6 +359,7 @@ func _on_next_pressed() -> void:
 		return
 	_current_index += 1
 	_show_question()
+
 
 func _on_clear_pressed() -> void:
 	if not _round_active:
@@ -392,12 +372,14 @@ func _on_clear_pressed() -> void:
 			(child as Button).set_pressed_no_signal(false)
 	submit_btn.disabled = true
 
+
 func _correct_so_far() -> int:
 	var count := 0
 	for key in _results:
 		if bool(_results[key]):
 			count += 1
 	return count
+
 
 func _is_correct(key: String, selected: Array[String]) -> bool:
 	var q: Dictionary = BANK[key]
@@ -409,6 +391,7 @@ func _is_correct(key: String, selected: Array[String]) -> bool:
 		wanted.sort()
 		return wanted == selected
 	return selected.size() == 1 and selected[0] == str(answer)
+
 
 func _finish_round() -> void:
 	if not _round_active:
@@ -448,9 +431,11 @@ func _finish_round() -> void:
 	finish_panel.visible = true
 	container.visible = false
 
+
 func _on_finish_next_pressed() -> void:
 	if finish_panel.visible:
 		game_finished.emit()
+
 
 func _make_button_style(bg: Color) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()

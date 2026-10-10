@@ -2,41 +2,41 @@ extends Control
 
 signal game_finished
 
-# the stage art is never stretched, only scaled uniformly to fit the window
-const FLOOR_RATIO := 0.89          # feet line as a fraction of the art height
+
+const FLOOR_RATIO := 0.89
 const EDGE_MARGIN := 36.0
 
-const PLAYER_FEET_OFFSET := 19.0   # feet sit this far below the cell centre in the sheet
+const PLAYER_FEET_OFFSET := 19.0
 const HIT_HALF_W := 18.0
 const HIT_HALF_H := 24.0
 
 const MOVE_SPEED := 340.0
 
-const BLOCK_TEXTURE_SIZE := 64.0   # source tile with its thick rim
-const BLOCK_SIZE := 40.0           # drawn size
+const BLOCK_TEXTURE_SIZE := 64.0
+const BLOCK_SIZE := 40.0
 const COLUMN_COUNT := 10
 
-# every block rolls its own speed, and the band widens as the round goes on
+
 const FALL_SPEED_MIN := 105.0
 const FALL_SPEED_MAX := 250.0
 const FALL_SPEED_CAP := 520.0
 const FALL_RAMP := 6.0
 const FALL_JITTER := 60.0
 
-const TIME_LIMIT := 40.0           # survive this long to win
+const TIME_LIMIT := 40.0
 
 const SPAWN_FIRST := 0.6
 const SPAWN_START := 0.42
 const SPAWN_MIN := 0.17
 const SPAWN_RAMP := 0.010
 const SPAWN_JITTER := 0.12
-const SPAWN_CLEARANCE := 2.5       # keep a column clear under a block that just appeared
+const SPAWN_CLEARANCE := 2.5
 
 const TEX_RED: Texture2D = preload("res://assets/block_dodge/block_red.png")
 const TEX_GREEN: Texture2D = preload("res://assets/block_dodge/block_green.png")
 const TEX_YELLOW: Texture2D = preload("res://assets/block_dodge/block_yellow.png")
 
-enum State { PLAYING, OVER, DONE }
+enum State {PLAYING, OVER, DONE}
 
 @onready var stage: Control = $stage
 @onready var bg: TextureRect = $stage/bg
@@ -148,7 +148,6 @@ func _process(delta: float) -> void:
 	_update_hud()
 
 func _update_input(delta: float) -> void:
-	# arrows or A/D; the raw key check keeps working if the input map changes
 	var direction: float = Input.get_axis("ui_left", "ui_right")
 	if is_zero_approx(direction):
 		var go_left: bool = (Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT)
@@ -160,12 +159,12 @@ func _update_input(delta: float) -> void:
 		elif go_right:
 			direction = 1.0
 
-	# no glide: releasing the key stops Blocky immediately
+	
 	velocity_x = direction * MOVE_SPEED
 	player.position.x = clampf(player.position.x + velocity_x * delta,
 		EDGE_MARGIN, stage_size.x - EDGE_MARGIN)
 
-	# idle is one static frame, so it only animates while walking
+	
 	var wanted: StringName = &"idle"
 	if direction < -0.01:
 		wanted = &"walk_left"
@@ -191,7 +190,6 @@ func _column_blocked(column: int) -> bool:
 	return false
 
 func _spawn_block() -> void:
-	# random column and random speed, never a tidy row
 	var column: int = randi() % COLUMN_COUNT
 	if column == last_column:
 		column = (column + 1 + randi() % (COLUMN_COUNT - 1)) % COLUMN_COUNT
@@ -248,7 +246,7 @@ func _update_blocks(delta: float) -> void:
 			_end_round()
 			return
 
-		# scored once past the feet, but it keeps falling until it is out of sight
+		
 		if block_box.position.y > hit_box.end.y and not bool(block.get_meta("passed")):
 			block.set_meta("passed", true)
 			dodged += 1
@@ -296,7 +294,7 @@ func _input(event: InputEvent) -> void:
 	var retry: bool = false
 	var advance: bool = false
 
-	# mouse clicks belong to the two buttons, only the keys are handled here
+	
 	if event is InputEventKey and event.pressed and not event.echo:
 		var key := event as InputEventKey
 		retry = key.keycode == KEY_SPACE or key.physical_keycode == KEY_SPACE

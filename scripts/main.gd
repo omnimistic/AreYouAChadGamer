@@ -24,8 +24,8 @@ func _on_begin_pressed() -> void:
 
 func back_to_menu() -> void:
 	var tween_in = create_tween()
-	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_IN)
 	await tween_in.finished
 
@@ -36,15 +36,14 @@ func back_to_menu() -> void:
 	begin_btn.disabled = false
 
 	var tween_out = create_tween()
-	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_OUT)
 
 func transition_to_scene(scene_path: String) -> void:
-	
 	var tween_in = create_tween()
-	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_in.tween_property(transition_mat, "shader_parameter/circle_size", 2.8, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_IN)
 	await tween_in.finished
 	
@@ -72,6 +71,6 @@ func transition_to_scene(scene_path: String) -> void:
 			new_scene.game_finished.connect(back_to_menu)
 
 	var tween_out = create_tween()
-	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45)\
-		.set_trans(Tween.TRANS_QUAD)\
+	tween_out.tween_property(transition_mat, "shader_parameter/circle_size", 0.0, 0.45) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_OUT)
