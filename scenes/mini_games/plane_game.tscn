@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cmtw1u8dk2uig"]
+
+[ext_resource type="Shader" uid="uid://dlr6ey0sv33vw" path="res://shaders/planet.gdshader" id="1_28goo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dot6r"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_28goo"]
+sky_material = SubResource("ProceduralSkyMaterial_dot6r")
+
+[sub_resource type="Environment" id="Environment_bohif"]
+background_mode = 2
+sky = SubResource("Sky_28goo")
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dot6r"]
+render_priority = 0
+shader = ExtResource("1_28goo")
+shader_parameter/ocean_deep = Color(0.05, 0.22, 0.48, 1)
+shader_parameter/ocean_shallow = Color(0.12, 0.48, 0.72, 1)
+shader_parameter/land_low = Color(0.24, 0.58, 0.28, 1)
+shader_parameter/land_high = Color(0.68, 0.58, 0.42, 1)
+shader_parameter/cloud_tint = Color(1, 1, 1, 1)
+shader_parameter/atmo_color = Color(0, 0.95, 1, 1)
+shader_parameter/rotation_speed = 0.08
+shader_parameter/atmosphere_intensity = 1.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_dot6r"]
+material = SubResource("ShaderMaterial_dot6r")
+
+[node name="plane_game" type="Node3D" unique_id=15701997]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2139801413]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1896461565]
+environment = SubResource("Environment_bohif")
+
+[node name="planet" type="MeshInstance3D" parent="." unique_id=2012895851]
+mesh = SubResource("SphereMesh_dot6r")

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dp7s7xvwlpfu"]
+
+[ext_resource type="Script" uid="uid://0m55m3d8dvyy" path="res://scripts/simon.gd" id="1_g7r02"]
+
+[node name="simon" type="Control" unique_id=636183003]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g7r02")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1016380842]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078078665, 0.084448345, 0.09497804, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2133979809]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="status_label" type="Label" parent="VBoxContainer" unique_id=657227461]
+layout_mode = 2
+
+[node name="score_label" type="Label" parent="VBoxContainer" unique_id=550182343]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=979949492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=262225531]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer" unique_id=1646613481]
+modulate = Color(0, 1, 0.16007765, 1)
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+
+[node name="Button2" type="Button" parent="CenterContainer/GridContainer" unique_id=2064386401]
+modulate = Color(1, 0.09985284, 0.03876, 1)
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+
+[node name="Button3" type="Button" parent="CenterContainer/GridContainer" unique_id=492549833]
+modulate = Color(0, 0.16007765, 1, 1)
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+
+[node name="Button4" type="Button" parent="CenterContainer/GridContainer" unique_id=1846693930]
+modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)

@@ -25,5 +25,10 @@ var minigame_scores = {
 	"predict_correct": 0,
 	"predict_incorrect": 0,
 	"predict_avg_time": 0.0,
-	"predict_score": 0.0
+	"predict_score": 0.0,
+	"simon_max_sequence": 0,
+	"simon_passed": false,
+	"stroop_correct": 0,
+	"stroop_accuracy": 0.0,
+	"stroop_avg_reaction_ms": 0.0
 }

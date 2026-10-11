@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bduibjeg3ubf7"]
+
+[ext_resource type="Shader" uid="uid://coc6w8yotcns8" path="res://shaders/rays.gdshader" id="1_aqgun"]
+[ext_resource type="Script" uid="uid://jc0dwxyh2o4w" path="res://scripts/result.gd" id="1_gd8ac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfy4g"]
+shader = ExtResource("1_aqgun")
+shader_parameter/ray_color_core = Color(0.9764706, 1, 0, 0.9019608)
+shader_parameter/ray_color_outer = Color(0.97633153, 1, 0, 0.40500003)
+shader_parameter/bg_color = Color(0.04, 0.05, 0.08, 1)
+shader_parameter/num_rays = 12.0
+shader_parameter/rotation_speed = 0.55
+shader_parameter/ray_sharpness = 2.2
+shader_parameter/pulse_speed = 2.0
+
+[node name="result" type="Control" unique_id=497951548]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gd8ac")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2092168512]
+material = SubResource("ShaderMaterial_dfy4g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1587461225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hero" type="TextureRect" parent="CenterContainer" unique_id=585626439]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1235314662]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="reveal_card" type="PanelContainer" parent="VBoxContainer" unique_id=1216881513]
+custom_minimum_size = Vector2(700, 180)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/reveal_card" unique_id=817270423]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/reveal_card/MarginContainer" unique_id=98258984]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="type_title" type="Label" parent="VBoxContainer/reveal_card/MarginContainer/VBoxContainer" unique_id=1722225016]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="type_subtitle" type="Label" parent="VBoxContainer/reveal_card/MarginContainer/VBoxContainer" unique_id=953970179]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="type_passage" type="Label" parent="VBoxContainer/reveal_card/MarginContainer/VBoxContainer" unique_id=1289616108]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/reveal_card/MarginContainer/VBoxContainer" unique_id=1928898175]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+text = "RETAKE THE TEST?"

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ckgnvwege164d"]
+
+[ext_resource type="FontFile" uid="uid://4a4l6xxos5f7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_pippm"]
+[ext_resource type="Script" uid="uid://dvs1npd8ah7hy" path="res://scripts/stroop_game.gd" id="1_rk4lj"]
+[ext_resource type="FontFile" uid="uid://dk5k1ibg6xanj" path="res://assets/fonts/PixelOperator8.ttf" id="2_sdbwu"]
+
+[node name="stroop_game" type="Control" unique_id=485421693]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rk4lj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1335387427]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10524041, 0.10524041, 0.1052404, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=44789888]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -38.5
+offset_right = 20.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="round_label" type="Label" parent="VBoxContainer" unique_id=794449814]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sdbwu")
+theme_override_font_sizes/font_size = 18
+text = "round 1/10"
+horizontal_alignment = 1
+
+[node name="prompt_label" type="Label" parent="VBoxContainer" unique_id=45919473]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sdbwu")
+theme_override_font_sizes/font_size = 28
+text = "Does the WORD match the INK COLOR?"
+horizontal_alignment = 1
+
+[node name="color_word_label" type="Label" parent="VBoxContainer" unique_id=1049719269]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pippm")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=779294108]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="match" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1793697556]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sdbwu")
+text = "MATCH"
+
+[node name="no_match" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1475980422]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sdbwu")
+text = "NO MATCH"
