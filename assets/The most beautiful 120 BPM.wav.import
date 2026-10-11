@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bse1voi61yf4w"
+path="res://.godot/imported/The most beautiful 120 BPM.wav-9e3753455d701d5f2e230e058e67b133.sample"
+
+[deps]
+
+source_file="res://assets/The most beautiful 120 BPM.wav"
+dest_files=["res://.godot/imported/The most beautiful 120 BPM.wav-9e3753455d701d5f2e230e058e67b133.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

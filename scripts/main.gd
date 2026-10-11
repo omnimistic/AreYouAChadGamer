@@ -16,9 +16,13 @@ func _ready() -> void:
 	follow_btn.pressed.connect(_on_follow_pressed)
 
 func _on_follow_pressed() -> void:
+	OS.shell_open("https://github.com/divyanshudhruv/")
 	OS.shell_open("https://github.com/omnimistic/")
 
+
 func _on_begin_pressed() -> void:
+	GLOBAL.play_bgm()
+
 	begin_btn.disabled = true
 	transition_to_scene("res://scenes/mini_games/reaction_time.tscn")
 
@@ -68,7 +72,7 @@ func transition_to_scene(scene_path: String) -> void:
 		elif scene_path.ends_with("jee_advanced.tscn"):
 			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/mini_games/predict.tscn"))
 		elif scene_path.ends_with("predict.tscn"):
-			transition_to_scene("res://scenes/result.tscn")
+			new_scene.game_finished.connect(func(): transition_to_scene("res://scenes/result.tscn"))
 		elif scene_path.ends_with("result.tscn"):
 			new_scene.game_finished.connect(back_to_menu)
 
